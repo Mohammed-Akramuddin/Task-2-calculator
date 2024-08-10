@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Calculator</title>
+  <style>
+  .container{
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+  }
+  .calculator{
+    height:85vmin;
+    width:65vmin;
+    background-color:brown;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+  }
+  input{
+    height:10vmin;
+    width:10vmin;
+    margin:0.5rem;
+    border-radius:5px;
+    background-color:grey;
+    Box-shadow:3px 3px 0px black,-2px -2px 3px white;
+    color:#FFDBDA;
+    font-size:1.5rem;
+  }
+  #dis{
+    margin:bottom:10px;
+  }
+  </style>
+    
+</head>
+<body>
+  <div class="container">
+  <div class="calculator">
+    <form id="for">
+      <div>
+      <input type="text" name="display" style="width:45vmin;box-shadow:none;text-align:right;background-color:white;color:black;font-size:2rem" id="dis">
+      </div>
+      <div>
+        <input type="button" value="AC" onclick="display.value=''">
+        <input type="button" value="DEL" onclick="display.value=display.value.toString().slice(0,-1)">
+        <input type="button" value="."  onclick="display.value+='.'">
+        <input type="button" value="/" onclick="display.value+='/'">
+      </div>
+      <div>
+        <input type="button" value="7" onclick="display.value+='7'">
+        <input type="button" value="8" onclick="display.value+='8'">
+        <input type="button" value="9" onclick="display.value+='9'">
+        <input type="button" value="*" onclick="display.value+='*'">
+      </div>
+      <div>
+        <input type="button" value="4" onclick="display.value+='4'">
+        <input type="button" value="5" onclick="display.value+='5'">
+        <input type="button" value="6" onclick="display.value+='6'">
+        <input type="button" value="-" onclick="display.value+='-'">
+      </div>
+      <div>
+        <input type="button" value="1" onclick="display.value+='1'">
+        <input type="button" value="2" onclick="display.value+='2'">
+        <input type="button" value="3" onclick="display.value+='3'">
+        <input type="button" value="+" onclick="display.value+='+'">
+      </div>
+      <div>
+        <div>
+        <input type="button" value="0" onclick="display.value+='0'">
+        <input type="button" value="00" onclick="display.value+='00'">
+        <input type="button" value="=" onclick="display.value=eval(display.value)">
+        <input type="button" value="ON" id="power">
+      </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  <script>
+  let x=document.querySelector("#power");
+  let d=document.querySelector("#dis");
+  let y="on";
+  let z=()=>{
+    if(y==="on"){
+      y="off";
+      d.style.visibility="hidden";
+    }
+    else{
+      y="on";
+      d.style.visibility="visible";
+    }
+  }
+  x.addEventListener("click",z);
+  </script>
+</body>
+</html>
